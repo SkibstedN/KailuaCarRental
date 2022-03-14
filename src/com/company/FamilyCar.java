@@ -1,6 +1,6 @@
 package com.company;
 
-import com.company.Car;
+
 
 public class FamilyCar extends Car {
 
