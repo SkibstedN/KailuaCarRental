@@ -2,12 +2,12 @@ package com.company;
 
 public class Car {
 
-    private String brand;
-    private String model;
-    private String fuelType;
-    private int regNumber;
-    private String date;
-    private int odometer;
+    protected String brand;
+    protected String model;
+    protected String fuelType;
+    protected int regNumber;
+    protected String date;
+    protected int odometer;
 
     public Car(String brand, String model, String fuelType, int regNumber, String date, int odometer) {
         this.brand = brand;
