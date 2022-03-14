@@ -40,7 +40,7 @@ public class Menu {
                     int caseOneAnswer = console.nextInt();
                         switch (caseOneAnswer) {
                             case 1:
-                                //createNewCustomer();
+                                //Controller.createNewCustomer();
                                 break;
                             case 2:
                                 //updateCustomer();

@@ -26,4 +26,9 @@ public class SqlEngine {
             System.exit(1);
         }
     }
+    public static void insertCustomer(Customer customer){
+
+
+
+    }
 }

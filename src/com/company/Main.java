@@ -1,7 +1,8 @@
 package com.company;
 
-public class Main {
+import java.util.Scanner;
 
+public class Main {
     public static void main(String[] args) {
 	//menu(); oi oi222
         System.out.println("| **    **          ****            **      **              **        **            ****");
