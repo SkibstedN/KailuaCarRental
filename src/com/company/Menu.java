@@ -99,13 +99,13 @@ public class Menu {
 
                         switch (caseThreeAnswer) {
                             case 1:
-                                //createNewCustomer();
+                                //createNewRentalContract();
                                 break;
                             case 2:
-                                //updateCustomer();
+                                //updateRentalContract();
                                 break;
                             case 3:
-                                //deleteCustomer();
+                                //deleteRentalContract();
                                 break;
                             case 4:
                                 break;
