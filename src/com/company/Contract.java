@@ -1,6 +1,7 @@
 package com.company;
 
 public class Contract {
+    private int contractID;
     private String renterName;
     private String renterAddress;
     private int renterZipCode;
