@@ -32,23 +32,27 @@ public class Menu {
                             "            ________________________________________ \n" +
                             "           | CUSTOMER MANAGE                        |\n" +
                             "           |----------------------------------------|\n" +
-                            "           |Enter 1  |   Create new customer        |\n" +
-                            "           |Enter 2  |   Update current customer    |\n" +
-                            "           |Enter 3  |   Deleting customer          |\n" +
-                            "           |Enter 4  |   Return to main menu        |\n" +
+                            "           |Enter 1  |   Se all customers           |\n" +
+                            "           |Enter 2  |   Create new customer        |\n" +
+                            "           |Enter 3  |   Update current customer    |\n" +
+                            "           |Enter 4  |   Deleting customer          |\n" +
+                            "           |Enter 5  |   Return to main menu        |\n" +
                             "           |________________________________________|");
                     int caseOneAnswer = console.nextInt();
                         switch (caseOneAnswer) {
                             case 1:
-                                //Controller.createNewCustomer();
+
                                 break;
                             case 2:
-                                //updateCustomer();
+                                //Controller.createNewCustomer();
                                 break;
                             case 3:
-                                //deleteCustomer();
+                                //updateCustomer();
                                 break;
                             case 4:
+                                //deleteCustomer();
+                                break;
+                            case 5:
                                 break;
                             default:
                                 break;
@@ -57,6 +61,7 @@ public class Menu {
                     break;
 
                 case 2:
+                    // Sæt menupunkt ind med udprint af alle biler
                     System.out.println("" +
                             "            ________________________________________ \n" +
                             "           | CAR MANAGE                             |\n" +
@@ -86,6 +91,7 @@ public class Menu {
                     break;
 
                 case 3:
+                    // Sæt menupunkt ind med udprint af alle kontrakter
                     System.out.println(" " +
                             "            _____________________________________________ \n" +
                             "           | RENTAL CONTRACT MANAGE                      |\n" +
