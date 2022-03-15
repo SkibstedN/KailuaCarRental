@@ -23,6 +23,7 @@ public class Customer {
         this.driverLicenseNumber = driverLicenseNumber;
         this.driverSinceDate = driverSinceDate;
     }
+    public Customer (){}
 
     public String getfName() {
         return fName;
@@ -98,7 +99,22 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "com.company.Customer{" +
+        return "" +
+                "|------------------------------|\n" +
+                "|      Kailua CarRental        |\n" +
+                "|------------------------------|\n\n" +
+                "Customer first name            ||    " + fName + "|\n" +
+                "Customer last name             ||    " + lName + "\n" +
+                "Customer address               ||    " + address + "\n" +
+                "Customer Zip Code              ||    " + zipCode + "\n" +
+                "Customer City                  ||    " + city + "\n" +
+                "Customer Phone number          ||    " + phoneNumber + "\n" +
+                "Customer eMail                 ||    " + eMail + "\n" +
+                "Customer Driverlicense number  ||   "  + driverLicenseNumber + "\n" +
+                "Customer Driver since date     ||    " + driverSinceDate + "\n";
+
+
+        /*"com.company.Customer{" +
                 "fName='" + fName + '\'' +
                 ", lName='" + lName + '\'' +
                 ", address='" + address + '\'' +
@@ -108,7 +124,7 @@ public class Customer {
                 ", eMail='" + eMail + '\'' +
                 ", driverLicenseNumber=" + driverLicenseNumber +
                 ", driverSinceDate='" + driverSinceDate + '\'' +
-                '}';
+                '}';*/
     }
 }
 

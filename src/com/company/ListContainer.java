@@ -3,7 +3,7 @@ package com.company;
 import java.util.ArrayList;
 
 public class ListContainer {
-    ArrayList<Customer> customers = new ArrayList<>();
+    ArrayList<Customer> customersList = new ArrayList<>();
     ArrayList<FamilyCar> familyCars = new ArrayList<>();
     ArrayList<LuxuryCar> luxuryCars = new ArrayList<>();
     ArrayList<SportsCar> sportsCars = new ArrayList<>();

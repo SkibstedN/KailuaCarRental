@@ -6,28 +6,57 @@ import java.util.Scanner;
 public class Controller {
 
 
-    public void createCustomer(ArrayList<Customer> customers){
+    public static void createCustomer(ArrayList<Customer> customers, Customer customer){
         Scanner console = new Scanner (System.in);
-        System.out.println("Enter customer first name");
+        System.out.println("" +
+                "|--------------------------|\n" +
+                "|Enter customer first name |\n" +
+                "|--------------------------|");
         String firstName = console.next();
-        System.out.println("Enter customer last name");
+        System.out.println("" +
+                "|--------------------------|\n" +
+                "|Enter customer last name  |\n" +
+                "|--------------------------|");
         String lastName = console.next();
-        System.out.println("Enter customer address");
-        String address = console.next();
-        System.out.println("Enter customer Zip Code");
+
+        System.out.println("" +
+                "|-----------------------|\n" +
+                "|Enter customer address |\n" +
+                "|-----------------------|");
+        console.nextLine();
+        String address = console.nextLine();
+        System.out.println("" +
+                "|-------------------------|\n" +
+                "|Enter customer Zip Code  |\n" +
+                "|-------------------------|");
         int zipCode = console.nextInt();
-        System.out.println("Enter City");
+        System.out.println("" +
+                "|------------|\n" +
+                "|Enter City  |\n" +
+                "|------------|");
         String city = console.next();
-        System.out.println("Enter customer Phonenumber");
+        System.out.println("" +
+                "|----------------------------|\n" +
+                "|Enter customer Phonenumber  |\n" +
+                "|----------------------------|");
         int phoneNumber = console.nextInt();
-        System.out.println("Enter email address");
+        System.out.println("" +
+                "|--------------------|\n" +
+                "|Enter email address |\n" +
+                "|--------------------|");
         String email = console.next();
-        System.out.println("Enter customer driverlicense number ");
+        System.out.println("" +
+                "|-------------------------------------|\n" +
+                "|Enter customer driverlicense number  |\n" +
+                "|-------------------------------------|");
         int driverLicenseNumber = console.nextInt();
-        System.out.println("Enter driver since date");
+        System.out.println("" +
+                "|------------------------|\n" +
+                "|Enter driver since date |\n" +
+                "|------------------------|");
         String driverSinceDate = console.next();
 
-        Customer customer = new Customer(firstName, lastName, address, zipCode, city, phoneNumber, email, driverLicenseNumber, driverSinceDate);
+        customer = new Customer(firstName, lastName, address, zipCode, city, phoneNumber, email, driverLicenseNumber, driverSinceDate);
         customers.add(customer);
         SqlEngine.insertCustomer(customer);
 

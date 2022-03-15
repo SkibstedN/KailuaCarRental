@@ -1,11 +1,22 @@
 package com.company;
 
+import javax.naming.ldap.Control;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Menu {
 
     public static void menu () {
         Scanner console = new Scanner(System.in);
+        Customer customer1 = new Customer();
+        ArrayList<Customer> customersList = new ArrayList<>();
+
+        Customer simon = new Customer("Simon", "Bang", "Dybendalsvej 70 st tv", 2720, "Vanløse", 29254559, "simonbang0311@hotmail.com", 12345, "02/02-15" );
+        Customer nikolaj = new Customer("Nikolaj", "Skibsted", "Kea", 2200, "København", 212345678, "nskibsted@gmail.com", 54321, "05/10-2000" );
+        customersList.add(simon);
+        customersList.add(nikolaj);
+
+
         int answer = 0;
         System.out.println("Welcome to Kailua Car Rental. In this program you are able to create, update and delete" +
                 "a customer, car and rental contract. You will pull data from a SQL database");
@@ -42,9 +53,12 @@ public class Menu {
                         switch (caseOneAnswer) {
                             case 1:
 
+                                for (int i = 0; i < customersList.size(); i++){
+                                    System.out.println(customersList.get(i));
+                                }
                                 break;
                             case 2:
-                                //Controller.createNewCustomer();
+                                Controller.createCustomer(customersList, customer1);
                                 break;
                             case 3:
                                 //updateCustomer();
@@ -66,24 +80,27 @@ public class Menu {
                             "            ________________________________________ \n" +
                             "           | CAR MANAGE                             |\n" +
                             "           |----------------------------------------|\n" +
-                            "           |Enter 1  |   Create new car             |\n" +
-                            "           |Enter 2  |   Update current car         |\n" +
-                            "           |Enter 3  |   Deleting car               |\n" +
-                            "           |Enter 4  |   Return to main menu        |\n" +
+                            "           |Enter 1  |   See all cars               |\n" +
+                            "           |Enter 2  |   Create new car             |\n" +
+                            "           |Enter 3  |   Update current car         |\n" +
+                            "           |Enter 4  |   Deleting car               |\n" +
+                            "           |Enter 5  |   Return to main menu        |\n" +
                             "           |________________________________________|\n");
                     int caseTwoAnswer = console.nextInt();
 
                     switch (caseTwoAnswer) {
                         case 1:
-                            //createNewCar();
                             break;
                         case 2:
-                            //updateCar();
+                            //createNewCar();
                             break;
                         case 3:
-                            //deleteCar();
+                            //updateCar();
                             break;
                         case 4:
+                            //deleteCar();
+                            break;
+                        case 5:
                             break;
                         default:
                             break;
@@ -96,24 +113,27 @@ public class Menu {
                             "            _____________________________________________ \n" +
                             "           | RENTAL CONTRACT MANAGE                      |\n" +
                             "           |---------------------------------------------|\n" +
-                            "           |Enter 1  |   Create new rental contract      |\n" +
-                            "           |Enter 2  |   Update current rental contract  |\n" +
-                            "           |Enter 3  |   Deleting rental Contract        |\n" +
-                            "           |Enter 4  |   Return to main menu             |\n" +
+                            "           |Enter 1  |   See all rental contracts        |\n" +
+                            "           |Enter 2  |   Create new rental contract      |\n" +
+                            "           |Enter 3  |   Update current rental contract  |\n" +
+                            "           |Enter 4  |   Deleting rental Contract        |\n" +
+                            "           |Enter 5  |   Return to main menu             |\n" +
                             "           |---------------------------------------------|");
                     int caseThreeAnswer = console.nextInt();
 
                         switch (caseThreeAnswer) {
                             case 1:
-                                //createNewRentalContract();
                                 break;
                             case 2:
-                                //updateRentalContract();
+                                //createNewRentalContract();
                                 break;
                             case 3:
-                                //deleteRentalContract();
+                                //updateRentalContract();
                                 break;
                             case 4:
+                                //deleteRentalContract();
+                                break;
+                            case 5:
                                 break;
                             default:
                                 break;
