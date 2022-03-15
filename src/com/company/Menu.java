@@ -10,14 +10,17 @@ public class Menu {
         Scanner console = new Scanner(System.in);
         Customer customer = new Customer();
         CarType carType = new CarType();
+        Contract contract = new Contract();
         ArrayList<Customer> customersList = new ArrayList<>();
         ArrayList<CarType> carTypeList = new ArrayList<>();
+        ArrayList<Contract> contractList = new ArrayList<>();
 
         Customer simon = new Customer("Simon", "Bang", "Dybendalsvej 70 st tv", 2720, "Vanløse", 29254559, "simonbang0311@hotmail.com", 12345, "15-02-02" );
         Customer nikolaj = new Customer("Nikolaj", "Skibsted", "Kea", 2200, "København", 212345678, "nskibsted@gmail.com", 54321, "00-07-15" );
         customersList.add(simon);
         customersList.add(nikolaj);
-
+        CarType peugeot = new CarType("peugeot", "107", "benzin", "ca50098", "14-04-31", 198000, 1, "Family", 1000, "manual", "Yes", "No", "fabric", 5, 68);
+        carTypeList.add(peugeot);
 
         int answer = 0;
         System.out.println("Welcome to Kailua Car Rental. In this program you are able to create, update and delete" +
@@ -55,8 +58,12 @@ public class Menu {
                         switch (caseOneAnswer) {
                             case 1:
 
-                                for (int i = 0; i < customersList.size(); i++){
+                               /* for (int i = 0; i < customersList.size(); i++){
                                     System.out.println(customersList.get(i));
+                                }*/
+                                for (Customer cu: customersList
+                                     ) {
+                                    System.out.println(cu);
                                 }
                                 break;
                             case 2:
@@ -92,6 +99,10 @@ public class Menu {
 
                     switch (caseTwoAnswer) {
                         case 1:
+                            for (CarType car: carTypeList
+                                 ) {
+                                System.out.println(car);
+                            }
                             break;
                         case 2:
                             Controller.createCar(console, carTypeList, carType );
@@ -125,9 +136,12 @@ public class Menu {
 
                         switch (caseThreeAnswer) {
                             case 1:
+                                for (Contract c: contractList) {
+                                    System.out.println(c);
+                                }
                                 break;
                             case 2:
-                                //createNewRentalContract();
+                                Controller.createRentalContract(console, contractList, contract);
                                 break;
                             case 3:
                                 //updateRentalContract();

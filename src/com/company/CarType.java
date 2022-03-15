@@ -3,7 +3,7 @@ package com.company;
 public class CarType extends Car{
     protected int carID;
     protected String carType;
-    protected int motorSize;
+    protected double motorSize;
     protected String gearType;
     protected String airCondition;
     protected String cruiseControl;
@@ -12,7 +12,7 @@ public class CarType extends Car{
     protected int horsePower;
 
     public CarType(String brand, String model, String fuelType, String regNumber, String date, int odometer, int carID,
-                   String carType, int motorSize, String gearType, String airCondition, String cruiseControl,
+                   String carType, double motorSize, String gearType, String airCondition, String cruiseControl,
                    String seatType, int seatAmount, int horsePower) {
         super(brand, model, fuelType, regNumber, date, odometer);
         this.carID = carID;
@@ -37,15 +37,15 @@ public class CarType extends Car{
     public String toString (){
         return super.toString() +
 
-                "Car ID             ||    " + carID + "|\n" +
-                "Car Type           ||    " + carType + "\n" +
-                "Motor Size         ||    " + motorSize + "\n" +
-                "Gear Type          ||    " + gearType + "\n" +
-                "Air Condition      ||    " + airCondition + "\n" +
-                "Cruise Control     ||    " + cruiseControl + "\n" +
-                "Seat Type          ||    " + seatType + "\n" +
-                "Seat Amount        ||    " + seatAmount + "\n" +
-                "Horsepower         ||    " + horsePower + "\n";
+                "Car ID                      ||    " + carID + "\n" +
+                "Car Type                    ||    " + carType + "\n" +
+                "Motor Size                  ||    " + motorSize + "\n" +
+                "Gear Type                   ||    " + gearType + "\n" +
+                "Air Condition               ||    " + airCondition + "\n" +
+                "Cruise Control              ||    " + cruiseControl + "\n" +
+                "Seat Type                   ||    " + seatType + "\n" +
+                "Seat Amount                 ||    " + seatAmount + "\n" +
+                "Horsepower                  ||    " + horsePower + "\n";
     }
 
 }

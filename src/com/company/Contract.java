@@ -13,8 +13,9 @@ public class Contract {
     private int currentKM;
     private String licensePlate;
 
-    public Contract(String renterName, String renterAddress, int renterZipCode, String city, int driverLicensNumber,
+    public Contract(int contractID, String renterName, String renterAddress, int renterZipCode, String city, int driverLicensNumber,
                     String rentalFromDate, String rentalToDate, int maxKM, int currentKM, String licensePlate) {
+        this.contractID = contractID;
         this.renterName = renterName;
         this.renterAddress = renterAddress;
         this.renterZipCode = renterZipCode;
@@ -25,5 +26,8 @@ public class Contract {
         this.maxKM = maxKM;
         this.currentKM = currentKM;
         this.licensePlate = licensePlate;
+    }
+    public Contract (){
+
     }
 }
