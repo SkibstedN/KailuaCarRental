@@ -11,7 +11,7 @@ public class CarType extends Car{
     protected int seatAmount;
     protected int horsePower;
 
-    public CarType(String brand, String model, String fuelType, int regNumber, String date, int odometer, int carID,
+    public CarType(String brand, String model, String fuelType, String regNumber, String date, int odometer, int carID,
                    String carType, int motorSize, String gearType, String airCondition, String cruiseControl,
                    String seatType, int seatAmount, int horsePower) {
         super(brand, model, fuelType, regNumber, date, odometer);
@@ -26,8 +26,26 @@ public class CarType extends Car{
         this.horsePower = horsePower;
     }
 
+    public CarType(String brand, String model, String fuelType, String regNumber, String date, int odometer) {
+        super(brand, model, fuelType, regNumber, date, odometer);
+    }
+
+    public CarType() {
+        super();
+    }
+
     public String toString (){
-        return "";
+        return super.toString() +
+
+                "Car ID             ||    " + carID + "|\n" +
+                "Car Type           ||    " + carType + "\n" +
+                "Motor Size         ||    " + motorSize + "\n" +
+                "Gear Type          ||    " + gearType + "\n" +
+                "Air Condition      ||    " + airCondition + "\n" +
+                "Cruise Control     ||    " + cruiseControl + "\n" +
+                "Seat Type          ||    " + seatType + "\n" +
+                "Seat Amount        ||    " + seatAmount + "\n" +
+                "Horsepower         ||    " + horsePower + "\n";
     }
 
 }

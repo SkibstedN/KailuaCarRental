@@ -8,8 +8,10 @@ public class Menu {
 
     public static void menu () {
         Scanner console = new Scanner(System.in);
-        Customer customer1 = new Customer();
+        Customer customer = new Customer();
+        CarType carType = new CarType();
         ArrayList<Customer> customersList = new ArrayList<>();
+        ArrayList<CarType> carTypeList = new ArrayList<>();
 
         Customer simon = new Customer("Simon", "Bang", "Dybendalsvej 70 st tv", 2720, "Vanløse", 29254559, "simonbang0311@hotmail.com", 12345, "15-02-02" );
         Customer nikolaj = new Customer("Nikolaj", "Skibsted", "Kea", 2200, "København", 212345678, "nskibsted@gmail.com", 54321, "00-07-15" );
@@ -58,7 +60,7 @@ public class Menu {
                                 }
                                 break;
                             case 2:
-                                Controller.createCustomer(customersList, customer1);
+                                Controller.createCustomer(console, customersList, customer);
                                 break;
                             case 3:
                                 //updateCustomer();
@@ -92,7 +94,7 @@ public class Menu {
                         case 1:
                             break;
                         case 2:
-                            //createNewCar();
+                            Controller.createCar(console, carTypeList, carType );
                             break;
                         case 3:
                             //updateCar();

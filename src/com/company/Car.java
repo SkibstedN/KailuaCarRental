@@ -5,17 +5,21 @@ public class Car {
     protected String brand;
     protected String model;
     protected String fuelType;
-    protected int regNumber;
+    protected String regNumber;
     protected String date;
     protected int odometer;
 
-    public Car(String brand, String model, String fuelType, int regNumber, String date, int odometer) {
+    public Car(String brand, String model, String fuelType, String regNumber, String date, int odometer) {
         this.brand = brand;
         this.model = model;
         this.fuelType = fuelType;
         this.regNumber = regNumber;
         this.date = date;
         this.odometer = odometer;
+    }
+
+    public Car() {
+
     }
 
     public String getBrand() {
@@ -42,11 +46,11 @@ public class Car {
         this.fuelType = fuelType;
     }
 
-    public int getRegNumber() {
+    public String getRegNumber() {
         return regNumber;
     }
 
-    public void setRegNumber(int regNumber) {
+    public void setRegNumber(String regNumber) {
         this.regNumber = regNumber;
     }
 
@@ -68,13 +72,25 @@ public class Car {
 
     @Override
     public String toString() {
-        return "com.company.Car{" +
+        return "" +
+                "|--------------------------------------------|\n" +
+                "|      Kailua CarRental >> CAR <<            |\n" +
+                "|--------------------------------------------|\n\n" +
+                "Brand                       ||    " + brand + "|\n" +
+                "Model                       ||    " + model + "\n" +
+                "Fuel Type                   ||    " + fuelType + "\n" +
+                "License Plate               ||    " + regNumber + "\n" +
+                "First Registration Date     ||    " + date + "\n" +
+                "Current Odometer            ||    " + odometer + "\n" ;
+
+
+        /*"com.company.Car{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 ", fuelType='" + fuelType + '\'' +
                 ", regNumber=" + regNumber +
                 ", date='" + date + '\'' +
                 ", odometer=" + odometer +
-                '}';
+                '}';*/
     }
 }
