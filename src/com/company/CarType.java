@@ -26,4 +26,8 @@ public class CarType extends Car{
         this.horsePower = horsePower;
     }
 
+    public String toString (){
+        return "";
+    }
+
 }
