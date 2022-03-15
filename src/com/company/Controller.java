@@ -51,9 +51,9 @@ public class Controller {
                 "|-------------------------------------|");
         int driverLicenseNumber = console.nextInt();
         System.out.println("" +
-                "|------------------------|\n" +
-                "|Enter driver since date |\n" +
-                "|------------------------|");
+                "|-----------------------------------|\n" +
+                "|Enter driver since date (YY-MM-DD) |\n" +
+                "|-----------------------------------|");
         String driverSinceDate = console.next();
 
         customer = new Customer(firstName, lastName, address, zipCode, city, phoneNumber, email, driverLicenseNumber, driverSinceDate);

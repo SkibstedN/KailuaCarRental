@@ -100,9 +100,9 @@ public class Customer {
     @Override
     public String toString() {
         return "" +
-                "|------------------------------|\n" +
-                "|      Kailua CarRental        |\n" +
-                "|------------------------------|\n\n" +
+                "|--------------------------------------------|\n" +
+                "|      Kailua CarRental >> CUSTOMER <<       |\n" +
+                "|--------------------------------------------|\n\n" +
                 "Customer first name            ||    " + fName + "|\n" +
                 "Customer last name             ||    " + lName + "\n" +
                 "Customer address               ||    " + address + "\n" +
@@ -110,7 +110,7 @@ public class Customer {
                 "Customer City                  ||    " + city + "\n" +
                 "Customer Phone number          ||    " + phoneNumber + "\n" +
                 "Customer eMail                 ||    " + eMail + "\n" +
-                "Customer Driverlicense number  ||   "  + driverLicenseNumber + "\n" +
+                "Customer Driverlicense number  ||    " + driverLicenseNumber + "\n" +
                 "Customer Driver since date     ||    " + driverSinceDate + "\n";
 
 
