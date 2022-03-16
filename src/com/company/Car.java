@@ -1,7 +1,7 @@
 package com.company;
 
 public class Car {
-
+    protected int carID;
     protected String brand;
     protected String model;
     protected String fuelType;
@@ -9,7 +9,8 @@ public class Car {
     protected String date;
     protected int odometer;
 
-    public Car(String brand, String model, String fuelType, String regNumber, String date, int odometer) {
+    public Car(int carID,String brand, String model, String fuelType, String regNumber, String date, int odometer) {
+        this.carID = carID;
         this.brand = brand;
         this.model = model;
         this.fuelType = fuelType;

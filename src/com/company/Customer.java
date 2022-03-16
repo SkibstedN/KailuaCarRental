@@ -1,6 +1,7 @@
 package com.company;
 
 public class Customer {
+    private int customerID;
     private String fName;
     private String lName;
     private String address;
@@ -11,8 +12,9 @@ public class Customer {
     private int driverLicenseNumber;
     private String driverSinceDate;
 
-    public Customer(String fName, String lName, String address, int zipCode, String city,
+    public Customer(int customerID, String fName, String lName, String address, int zipCode, String city,
                     int phoneNumber, String eMail, int driverLicenseNumber, String driverSinceDate) {
+        this.customerID = customerID;
         this.fName = fName;
         this.lName = lName;
         this.address = address;
@@ -103,7 +105,7 @@ public class Customer {
                 "|--------------------------------------------|\n" +
                 "|      Kailua CarRental >> CUSTOMER <<       |\n" +
                 "|--------------------------------------------|\n\n" +
-                "Customer first name            ||    " + fName + "|\n" +
+                "Customer first name            ||    " + fName + "\n" +
                 "Customer last name             ||    " + lName + "\n" +
                 "Customer address               ||    " + address + "\n" +
                 "Customer Zip Code              ||    " + zipCode + "\n" +
@@ -114,17 +116,7 @@ public class Customer {
                 "Customer Driver since date     ||    " + driverSinceDate + "\n";
 
 
-        /*"com.company.Customer{" +
-                "fName='" + fName + '\'' +
-                ", lName='" + lName + '\'' +
-                ", address='" + address + '\'' +
-                ", zipCode=" + zipCode +
-                ", city='" + city + '\'' +
-                ", phoneNumber=" + phoneNumber +
-                ", eMail='" + eMail + '\'' +
-                ", driverLicenseNumber=" + driverLicenseNumber +
-                ", driverSinceDate='" + driverSinceDate + '\'' +
-                '}';*/
+
     }
 }
 

@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Menu {
 
+
     public static void menu () {
         Scanner console = new Scanner(System.in);
         Customer customer = new Customer();
@@ -15,11 +16,11 @@ public class Menu {
         ArrayList<CarType> carTypeList = new ArrayList<>();
         ArrayList<Contract> contractList = new ArrayList<>();
 
-        Customer simon = new Customer("Simon", "Bang", "Dybendalsvej 70 st tv", 2720, "Vanløse", 29254559, "simonbang0311@hotmail.com", 12345, "15-02-02" );
-        Customer nikolaj = new Customer("Nikolaj", "Skibsted", "Kea", 2200, "København", 212345678, "nskibsted@gmail.com", 54321, "00-07-15" );
+        Customer simon = new Customer(15,"Simon", "Bang", "Dybendalsvej 70 st tv", 2720, "Vanløse", 29254559, "simonbang0311@hotmail.com", 12345, "15-02-02" );
+        Customer nikolaj = new Customer(20,"Nikolaj", "Skibsted", "Kea", 2200, "København", 212345678, "nskibsted@gmail.com", 54321, "00-07-15" );
         customersList.add(simon);
         customersList.add(nikolaj);
-        CarType peugeot = new CarType("peugeot", "107", "benzin", "ca50098", "14-04-31", 198000, 1, "Family", 1000, "manual", "Yes", "No", "fabric", 5, 68);
+        CarType peugeot = new CarType(20,"peugeot", "107", "benzin", "ca50098", "14-04-31", 198000, 1, "Family", 1000, "manual", "Yes", "No", "fabric", 5, 68);
         carTypeList.add(peugeot);
 
         int answer = 0;
@@ -61,19 +62,18 @@ public class Menu {
                                /* for (int i = 0; i < customersList.size(); i++){
                                     System.out.println(customersList.get(i));
                                 }*/
-                                for (Customer cu: customersList
-                                     ) {
+                                for (Customer cu: customersList ) {
                                     System.out.println(cu);
                                 }
                                 break;
                             case 2:
-                                Controller.createCustomer(console, customersList, customer);
+                                CustomerManager.createCustomer(console, customersList, customer);
                                 break;
                             case 3:
-                                //updateCustomer();
+                                CustomerManager.updateCustomer();
                                 break;
                             case 4:
-                                //deleteCustomer();
+                                CustomerManager.deleteCustomer();
                                 break;
                             case 5:
                                 break;
@@ -99,19 +99,20 @@ public class Menu {
 
                     switch (caseTwoAnswer) {
                         case 1:
+                            SqlEngine.getCar(carType, carTypeList);
                             for (CarType car: carTypeList
                                  ) {
                                 System.out.println(car);
                             }
                             break;
                         case 2:
-                            Controller.createCar(console, carTypeList, carType );
+                            CarManager.createCar(console, carTypeList, carType );
                             break;
                         case 3:
-                            //updateCar();
+                            CarManager.updateCar();
                             break;
                         case 4:
-                            //deleteCar();
+                            CarManager.deleteCar();
                             break;
                         case 5:
                             break;
@@ -141,13 +142,13 @@ public class Menu {
                                 }
                                 break;
                             case 2:
-                                Controller.createRentalContract(console, contractList, contract);
+                                ContractManager.createRentalContract(console, contractList, contract);
                                 break;
                             case 3:
-                                //updateRentalContract();
+                                ContractManager.updateContract();
                                 break;
                             case 4:
-                                //deleteRentalContract();
+                                ContractManager.deleteContract();
                                 break;
                             case 5:
                                 break;

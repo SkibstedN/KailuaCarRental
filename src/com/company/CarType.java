@@ -1,9 +1,9 @@
 package com.company;
 
 public class CarType extends Car{
-    protected int carID;
+    protected int carType_ID;
     protected String carType;
-    protected double motorSize;
+    protected int motorSize;
     protected String gearType;
     protected String airCondition;
     protected String cruiseControl;
@@ -11,10 +11,10 @@ public class CarType extends Car{
     protected int seatAmount;
     protected int horsePower;
 
-    public CarType(String brand, String model, String fuelType, String regNumber, String date, int odometer, int carID,
-                   String carType, double motorSize, String gearType, String airCondition, String cruiseControl,
+    public CarType(int carID, String brand, String model, String fuelType, String regNumber, String date, int odometer, int carType_ID,
+                   String carType, int motorSize, String gearType, String airCondition, String cruiseControl,
                    String seatType, int seatAmount, int horsePower) {
-        super(brand, model, fuelType, regNumber, date, odometer);
+        super(carID,brand, model, fuelType, regNumber, date, odometer);
         this.carID = carID;
         this.carType = carType;
         this.motorSize = motorSize;
@@ -26,14 +26,15 @@ public class CarType extends Car{
         this.horsePower = horsePower;
     }
 
-    public CarType(String brand, String model, String fuelType, String regNumber, String date, int odometer) {
-        super(brand, model, fuelType, regNumber, date, odometer);
+    public CarType(int carID,String brand, String model, String fuelType, String regNumber, String date, int odometer) {
+        super(carID,brand, model, fuelType, regNumber, date, odometer);
     }
 
     public CarType() {
         super();
     }
 
+    @Override
     public String toString (){
         return super.toString() +
 
