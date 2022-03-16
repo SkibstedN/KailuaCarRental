@@ -49,4 +49,75 @@ public class CarType extends Car{
                 "Horsepower                  ||    " + horsePower + "\n";
     }
 
+    public int getCarType_ID() {
+        return carType_ID;
+    }
+
+    public void setCarType_ID(int carType_ID) {
+        this.carType_ID = carType_ID;
+    }
+
+    public String getCarType() {
+        return carType;
+    }
+
+    public void setCarType(String carType) {
+        this.carType = carType;
+    }
+
+    public int getMotorSize() {
+        return motorSize;
+    }
+
+    public void setMotorSize(int motorSize) {
+        this.motorSize = motorSize;
+    }
+
+    public String getGearType() {
+        return gearType;
+    }
+
+    public void setGearType(String gearType) {
+        this.gearType = gearType;
+    }
+
+    public String getAirCondition() {
+        return airCondition;
+    }
+
+    public void setAirCondition(String airCondition) {
+        this.airCondition = airCondition;
+    }
+
+    public String getCruiseControl() {
+        return cruiseControl;
+    }
+
+    public void setCruiseControl(String cruiseControl) {
+        this.cruiseControl = cruiseControl;
+    }
+
+    public String getSeatType() {
+        return seatType;
+    }
+
+    public void setSeatType(String seatType) {
+        this.seatType = seatType;
+    }
+
+    public int getSeatAmount() {
+        return seatAmount;
+    }
+
+    public void setSeatAmount(int seatAmount) {
+        this.seatAmount = seatAmount;
+    }
+
+    public int getHorsePower() {
+        return horsePower;
+    }
+
+    public void setHorsePower(int horsePower) {
+        this.horsePower = horsePower;
+    }
 }

@@ -106,13 +106,6 @@ public class SqlEngine {
                     carTypeList.add(carType1);
                 }
 
-                /*protected int carID;
-
-    protected String airCondition;
-    protected String cruiseControl;
-    protected String seatType;
-    protected int seatAmount;
-    protected int horsePower;*/
             }
             s.close();
             con.close();
@@ -120,6 +113,53 @@ public class SqlEngine {
             System.out.println("SqlException: "+sqlException.getMessage());
             System.exit(1);
         }
+
+    }
+
+    public static void insertCar (CarType car, ArrayList<CarType> carTypeList){
+        try{
+            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            Statement s = con.createStatement();
+            String carType = car.getCarType();
+            //ResultSet rs = s.executeQuery("INSERT INTO car (car_type, car_brand, car_model) VALUES(?, ? , ?)");
+
+            String carQuery = "INSERT INTO CAR (car_type, car_brand, car_model)";
+        PreparedStatement preparedStatement = con.prepareStatement(carQuery);
+        preparedStatement.setString(1,car.getCarType());
+        preparedStatement.setString(2,car.getBrand());
+        preparedStatement.setString(3, car.getModel());
+
+        String carInformation = "INSERT INTO carInformation (FK_carInformation_car_id, car_fueltype, car_licenseplate, car_first_registration, car_odometer)";
+
+        PreparedStatement preparedStatement1 = con.prepareStatement(carInformation);
+        preparedStatement1.setInt(1,carTypeList.size()+1);
+        preparedStatement1.setString(2, car.getFuelType());
+        preparedStatement1.setString(3,car.getRegNumber());
+        preparedStatement1.setString(4,car.getDate());
+        preparedStatement1.setInt(5,car.getOdometer());
+
+        String carTypeQuery = "INSERT INTO carType (FK_carType_car_id, carType_gearType, carType_horsepower," +
+                " carType_motorSize, carType_airCondition, cartype_cruiseControl, cartype_seatType, cartype_seatAmount)";
+
+        PreparedStatement preparedStatement2 = con.prepareStatement(carTypeQuery);
+        preparedStatement2.setInt(1,carTypeList.size()+1);
+        preparedStatement2.setString(2,car.getCarType());
+        preparedStatement2.setInt(3,car.getHorsePower());
+        preparedStatement2.setDouble(4,car.getMotorSize());
+        preparedStatement2.setString(5,car.getAirCondition());
+        preparedStatement2.setString(6,car.getCruiseControl());
+        preparedStatement2.setString(7,car.getSeatType());
+        preparedStatement2.setInt(8,car.getSeatAmount());
+
+            s.close();
+            con.close();
+        }catch(SQLException sqlException){
+            System.out.println("SqlException: "+sqlException.getMessage());
+            System.exit(1);
+        }
+
+    }
+    public static void getContract (){
 
     }
 }

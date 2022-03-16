@@ -99,6 +99,7 @@ public class CarManager {
         car = new CarType(carID, brand, model, fuelType, licensePlate, firstRegDate, odometer, carID, carType, motorSize, gearType,
                 airCondition, cruiseControl, seatType, seatAmount, horsePower);
         carTypeList.add(car);
+        SqlEngine.insertCar(car, carTypeList);
     }
 
     public static void updateCar (){
