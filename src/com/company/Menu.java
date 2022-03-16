@@ -59,9 +59,8 @@ public class Menu {
                         switch (caseOneAnswer) {
                             case 1:
 
-                               /* for (int i = 0; i < customersList.size(); i++){
-                                    System.out.println(customersList.get(i));
-                                }*/
+                               SqlEngine.getCustomer(customer, customersList);
+
                                 for (Customer cu: customersList ) {
                                     System.out.println(cu);
                                 }

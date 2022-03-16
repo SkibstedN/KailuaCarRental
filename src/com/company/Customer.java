@@ -105,6 +105,7 @@ public class Customer {
                 "|--------------------------------------------|\n" +
                 "|      Kailua CarRental >> CUSTOMER <<       |\n" +
                 "|--------------------------------------------|\n\n" +
+                "Customer ID                    ||    " + customerID + "\n" +
                 "Customer first name            ||    " + fName + "\n" +
                 "Customer last name             ||    " + lName + "\n" +
                 "Customer address               ||    " + address + "\n" +

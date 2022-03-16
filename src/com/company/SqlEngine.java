@@ -28,20 +28,32 @@ public class SqlEngine {
         }
     }
     // TODO Opret metode som henter data fra customer tabellen og sætter det ind i customer objectet og customerlist listen.
-    public static void getCustomer (){
+    public static void getCustomer (Customer customer1, ArrayList<Customer> customerList){
         try{
             con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
             Statement s = con.createStatement();
-            ResultSet rs = s.executeQuery(" SELECT c.car_id, c.car_brand, c.car_model, ci.car_fueltype, ci.car_licenseplate, ci.car_first_registration, ci.car_odometer," +
-                    " ct.carType_id, c.car_type,\n" +
-                    " ct.carType_motorSize,ct.carType_geartype, ct.carType_airCondition, ct.carType_cruiseControl, ct.carType_seatType, \n" +
-                    " ct.carType_seatAmount, ct.carType_horsepower\n" +
-                    "FROM car c\n" +
-                    "INNER JOIN carInformation ci ON c.car_id = ci.FK_carInformation_car_id\n" +
-                    "INNER JOIN carType ct ON ci.FK_carInformation_car_id = ct.FK_carType_car_id;");
+            ResultSet rs = s.executeQuery(" SELECT c.customer_id, c.customer_first_name, c.customer_last_name, c.customer_licensenumber, c.customer_driver_since_date, r.customer_address, r.customer_city, \n" +
+                    "r.customer_zip_code, cc.customer_phonenumber, cc.customer_email\n" +
+                    "FROM customer c \n" +
+                    "JOIN residence r ON c.customer_id = r.FK_residence_customer_id\n" +
+                    "JOIN contact cc ON r.customerResidence_id = cc.FK_contact_customer_id;");
 
             if (rs != null){
                 while (rs.next()){
+
+                     int customerID = rs.getInt("customer_id");
+                     String fName = rs.getString("customer_first_name");
+                    String lName = rs.getString("customer_last_name");
+                     String address = rs.getString("customer_address");
+                     int zipCode = rs.getInt("Customer_zip_code");
+                     String city = rs.getString("customer_city");
+                     int phoneNumber = rs.getInt("customer_phonenumber");
+                     String eMail = rs.getString("customer_email");
+                     int driverLicenseNumber = rs.getInt("customer_licensenumber");
+                     String driverSinceDate = rs.getString("customer_driver_since_date");
+
+                     customer1 = new Customer(customerID, fName, lName, address, zipCode, city, phoneNumber, eMail, driverLicenseNumber, driverSinceDate);
+                     customerList.add(customer1);
 
                 }
             }
