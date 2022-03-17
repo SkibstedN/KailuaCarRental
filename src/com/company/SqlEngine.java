@@ -248,7 +248,7 @@ public class SqlEngine {
 
             String carTypeQuery = "DELETE FROM carType WHERE FK_carType_car_id = ?";
             PreparedStatement preparedStatement1 = con.prepareStatement(carTypeQuery);
-            preparedStatement.setInt(1,deleteCar);
+            preparedStatement1.setInt(1,deleteCar);
             preparedStatement1.executeUpdate();
 
             String carQuery = "DELETE FROM car WHERE car_id = ?";
