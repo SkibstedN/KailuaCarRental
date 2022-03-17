@@ -1,6 +1,7 @@
 package com.company;
 
 public class Contract {
+    private int rentalCarID;
     private int contractID;
     private String renterName;
     private String renterAddress;
@@ -13,8 +14,9 @@ public class Contract {
     private int currentKM;
     private String licensePlate;
 
-    public Contract(int contractID, String renterName, String renterAddress, int renterZipCode, String city, int driverLicensNumber,
+    public Contract(int rentalCarID, int contractID, String renterName, String renterAddress, int renterZipCode, String city, int driverLicensNumber,
                     String rentalFromDate, String rentalToDate, int maxKM, int currentKM, String licensePlate) {
+        this.rentalCarID = rentalCarID;
         this.contractID = contractID;
         this.renterName = renterName;
         this.renterAddress = renterAddress;

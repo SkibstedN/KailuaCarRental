@@ -115,7 +115,7 @@ public class Menu {
                             CarManager.updateCar(console, carType, carTypeList);
                             break;
                         case 4:
-                            CarManager.deleteCar();
+                            CarManager.deleteCar(console, carType, carTypeList);
                             break;
                         case 5:
                             break;
@@ -145,7 +145,7 @@ public class Menu {
                                 }
                                 break;
                             case 2:
-                                ContractManager.createRentalContract(console, contractList, contract);
+                                ContractManager.createRentalContract(console, contractList, contract, carTypeList);
                                 break;
                             case 3:
                                 ContractManager.updateContract();

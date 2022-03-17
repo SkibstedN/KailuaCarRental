@@ -5,12 +5,17 @@ import java.util.Scanner;
 
 public class ContractManager {
 
-    public static void createRentalContract(Scanner console, ArrayList<Contract> rentalContractList, Contract contract){
+    public static void createRentalContract(Scanner console, ArrayList<Contract> rentalContractList, Contract contract, ArrayList<CarType> carTypeList){
+
+        for (CarType car: carTypeList
+             ) {
+            System.out.println(car);
+        }
         System.out.println("" +
-                "|---------------------------|\n" +
-                "|Enter rental contract ID   |\n" +
-                "|---------------------------|");
-        int contractID = console.nextInt();
+                "|----------------------------|\n" +
+                "|Enter which car to rent ID  |\n" +
+                "|----------------------------|");
+        int rentalCarID = console.nextInt();
 
         System.out.println("" +
                 "|--------------------|\n" +
@@ -72,8 +77,9 @@ public class ContractManager {
                 "|Enter licenseplate of rental car   |\n" +
                 "|-----------------------------------|");
         String licensePlate = console.next();
+        int contractID = rentalContractList.size()+2;
 
-        contract = new Contract(contractID, renterName, renterAddress, renterZipCode, renterCity, driverLicenseNumber,
+        contract = new Contract(rentalCarID,contractID, renterName, renterAddress, renterZipCode, renterCity, driverLicenseNumber,
                 rentalFromDate, rentalToDate, maxKM, currentKM, licensePlate);
         rentalContractList.add(contract);
 

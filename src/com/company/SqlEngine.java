@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class SqlEngine {
 
     public static final String jdbc_driver = "com.mysql.jdbc.Driver";
-    public static final String database_url = "jdbc:mysql://localhost:3306/ap";
+    public static final String database_url = "jdbc:mysql://localhost:3306/kailua";
     public static Connection con;
 
     public static void main(String[] args) {
@@ -214,9 +214,6 @@ public class SqlEngine {
         }
 
     }
-    public static void getContract (){
-//hel
-    }
 
     public static void updateCar(CarType carToUpdate,ArrayList<CarType> carTypeList){
         try{
@@ -235,6 +232,85 @@ public class SqlEngine {
             System.out.println("SqlException: "+sqlException.getMessage());
             System.exit(1);
         }
+
+    }
+
+    public static void deleteCar(int deleteCar){
+        try{
+            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            Statement s = con.createStatement();
+
+
+            String carInformationQuery = "DELETE FROM carInformation WHERE FK_carInformation_car_id = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(carInformationQuery);
+            preparedStatement.setInt(1,deleteCar);
+            preparedStatement.executeUpdate();
+
+            String carTypeQuery = "DELETE FROM carType WHERE FK_carType_car_id = ?";
+            PreparedStatement preparedStatement1 = con.prepareStatement(carTypeQuery);
+            preparedStatement.setInt(1,deleteCar);
+            preparedStatement1.executeUpdate();
+
+            String carQuery = "DELETE FROM car WHERE car_id = ?";
+            PreparedStatement preparedStatement2 = con.prepareStatement(carQuery);
+            preparedStatement2.setInt(1,deleteCar);
+            preparedStatement2.executeUpdate();
+
+
+            s.close();
+            con.close();
+        }catch(SQLException sqlException){
+            System.out.println("SqlException: "+sqlException.getMessage());
+            System.exit(1);
+        }
+    }
+
+    public static void getContract (Contract contract, ArrayList<Contract> contractList){
+        /*try{
+            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            Statement s = con.createStatement();
+            ResultSet rs = s.executeQuery(" SELECT c.car_id, c.car_brand, c.car_model, ci.car_fueltype, ci.car_licenseplate, ci.car_first_registration, ci.car_odometer," +
+                    " ct.carType_id, c.car_type,\n" +
+                    " ct.carType_motorSize,ct.carType_geartype, ct.carType_airCondition, ct.carType_cruiseControl, ct.carType_seatType, \n" +
+                    " ct.carType_seatAmount, ct.carType_horsepower\n" +
+                    "FROM car c\n" +
+                    "INNER JOIN carInformation ci ON c.car_id = ci.FK_carInformation_car_id\n" +
+                    "INNER JOIN carType ct ON ci.FK_carInformation_car_id = ct.FK_carType_car_id;");
+
+            if (rs != null){
+                while (rs.next()){
+                    int carID = rs.getInt("car_id");
+                    String brand = rs.getString("car_brand");
+                    String model = rs.getString("car_model");
+                    String fueltype = rs.getString("car_fueltype");
+                    String regNumber = rs.getString("car_licenseplate");
+                    String date = rs.getString("car_first_registration");
+                    int odometer = rs.getInt("car_odometer");
+                    int carType_ID = rs.getInt("carType_id");
+                    String carType = rs.getString("car_type");
+                    int motorSize = rs.getInt("carType_motorSize");
+                    String gearType = rs.getString("carType_geartype");
+                    String airCondition = rs.getString("carType_airCondition");
+                    String cruiseControl = rs.getString("carType_cruiseControl");
+                    String seatType = rs.getString("carType_seatType");
+                    int seatAmount = rs.getInt("carType_seatAmount");
+                    int horsePower = rs.getInt("carType_horsepower");
+
+
+                    carType1 = new CarType(carID, brand,model, fueltype, regNumber, date,odometer, carType_ID, carType, motorSize, gearType, airCondition, cruiseControl,
+                            seatType, seatAmount, horsePower);
+                    carTypeList.add(carType1);
+                }
+
+            }
+            s.close();
+            con.close();
+        }catch(SQLException sqlException){
+            System.out.println("SqlException: "+sqlException.getMessage());
+            System.exit(1);
+        }
+
+    }*/
 
     }
 

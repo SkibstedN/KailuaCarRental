@@ -42,13 +42,6 @@ public class CarManager {
                 "|------------------|");
         int odometer = console.nextInt();
 
-        /*System.out.println("" +
-                "|------------------|\n" +
-                "|Enter carID       |\n" +
-                "|------------------|");
-        int carID = console.nextInt();*/
-        int carID = 0;
-        //int carID = carTypeList.size() +1;
 
         System.out.println("" +
                 "|------------------|\n" +
@@ -98,6 +91,8 @@ public class CarManager {
                 "|--------------------|");
         int horsePower = console.nextInt();
 
+        int carID = carTypeList.size() +2;
+
         car = new CarType(carID, brand, model, fuelType, licensePlate, firstRegDate, odometer, carID, carType, motorSize, gearType,
                 airCondition, cruiseControl, seatType, seatAmount, horsePower);
         carTypeList.add(car);
@@ -124,7 +119,7 @@ public class CarManager {
                 }
             }
             if(carToUpdate == null){
-                System.out.println("The chosen Car ID does not exist, Entr a valid Car ID :");
+                System.out.println("The chosen Car ID does not exist, Enter a valid Car ID :");
             }
 
         }
@@ -141,7 +136,49 @@ public class CarManager {
 
     }
 
-    public static void deleteCar (){
+    public static void deleteCar (Scanner console, CarType carType1,ArrayList<CarType>carTypeList){
+        System.out.println("Here you will choose which car you want to delete from the database");
+        for (CarType car: carTypeList
+             ) {
+            System.out.println(car);
+        }
+
+        System.out.println(""+
+                "            _____________________________________________ \n" +
+                "           | Deleting car                                |\n" +
+                "           |---------------------------------------------|\n" +
+                "           | Enter the ID of the car you want to delete  |\n" +
+                "           |---------------------------------------------|\n" );
+        int deleteCar = console.nextInt();
+
+        for (CarType car : carTypeList) {
+            if (car.carID == deleteCar) {
+                System.out.println(car);
+            }
+        }
+        System.out.println("" +
+                "|---------------------------------------------------|\n" +
+                "|Is this the car you want to delete? (yes or No)    |\n" +
+                "|---------------------------------------------------|");
+        String answer = console.next();
+        while (!answer.equalsIgnoreCase("yes")){
+            System.out.println("" +
+                    "|----------------------------------------------|\n" +
+                    "|Enter the ID of the car you want to delete    |\n" +
+                    "|----------------------------------------------|");
+            deleteCar = console.nextInt();
+            for (CarType car : carTypeList) {
+                if (car.carID == deleteCar) {
+                    System.out.println(car);
+                }
+            }
+            System.out.println("" +
+                    "|---------------------------------------------------|\n" +
+                    "|Is this the car you want to delete? (yes or No)    |\n" +
+                    "|---------------------------------------------------|");
+            answer = console.next();
+        }
+        SqlEngine.deleteCar(deleteCar);
 
     }
 }
