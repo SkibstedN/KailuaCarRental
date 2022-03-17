@@ -215,7 +215,7 @@ public class SqlEngine {
 
     }
     public static void getContract (){
-
+//hel
     }
 
     public static void updateCar(CarType carToUpdate,ArrayList<CarType> carTypeList){
@@ -237,4 +237,7 @@ public class SqlEngine {
         }
 
     }
+
+
+
 }
