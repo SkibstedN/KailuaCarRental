@@ -217,4 +217,24 @@ public class SqlEngine {
     public static void getContract (){
 
     }
+
+    public static void updateCar(CarType carToUpdate,ArrayList<CarType> carTypeList){
+        try{
+            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            Statement s = con.createStatement();
+            //ResultSet rs = s.executeQuery("INSERT INTO car (car_type, car_brand, car_model) VALUES(?, ? , ?)");
+
+            String carQuery = "UPDATE carInformation SET car_odometer = ? WHERE car_id = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(carQuery);
+            preparedStatement.setInt(1,carToUpdate.getOdometer());
+            preparedStatement.setInt(2,carToUpdate.getCarID());
+            preparedStatement.execute();
+            s.close();
+            con.close();
+        }catch(SQLException sqlException){
+            System.out.println("SqlException: "+sqlException.getMessage());
+            System.exit(1);
+        }
+
+    }
 }

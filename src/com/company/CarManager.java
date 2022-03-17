@@ -104,7 +104,40 @@ public class CarManager {
         SqlEngine.insertCar(car, carTypeList);
     }
 
-    public static void updateCar (){
+    public static void updateCar (Scanner console, CarType carType1,ArrayList<CarType>carTypeList){
+        boolean ValidateCarId = false;
+        CarType carToUpdate = null;
+        while(ValidateCarId != false) {
+            System.out.println("List of all cars :");
+            SqlEngine.getCar(carType1, carTypeList);
+            for (CarType car : carTypeList
+            ) {
+                System.out.println(car);
+            }
+            System.out.println("Which car do you want to update? \n Enter Car ID : ");
+            int input = console.nextInt();
+            for (CarType car : carTypeList) {
+                if (car.carID == input) {
+                    System.out.println(car);
+                    carToUpdate = car;
+                    ValidateCarId = true;
+                }
+            }
+            if(carToUpdate == null){
+                System.out.println("The chosen Car ID does not exist, Entr a valid Car ID :");
+            }
+
+        }
+        System.out.println(""+
+                "            ________________________________________ \n" +
+                "           | Update Odometer                        |\n" +
+                "           |----------------------------------------|\n" +
+                "           | Enter new odometer value:              |\n" +
+                "           |----------------------------------------|\n" );
+        int newOdometer = console.nextInt();
+        carToUpdate.setOdometer(newOdometer);
+
+        SqlEngine.updateCar(carToUpdate,carTypeList);
 
     }
 

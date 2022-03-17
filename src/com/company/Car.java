@@ -23,6 +23,14 @@ public class Car {
 
     }
 
+    public int getCarID() {
+        return carID;
+    }
+
+    public void setCarID(int carID) {
+        this.carID = carID;
+    }
+
     public String getBrand() {
         return brand;
     }
@@ -86,13 +94,5 @@ public class Car {
                 "Current Odometer            ||    " + odometer + "\n" ;
 
 
-        /*"com.company.Car{" +
-                "brand='" + brand + '\'' +
-                ", model='" + model + '\'' +
-                ", fuelType='" + fuelType + '\'' +
-                ", regNumber=" + regNumber +
-                ", date='" + date + '\'' +
-                ", odometer=" + odometer +
-                '}';*/
     }
 }
