@@ -65,9 +65,56 @@ public class SqlEngine {
         }
     }
     // TODO Tage informationerne fra CustomerManager.createCustomer og sæt dem ind i databasen
-    public static void insertCustomer(Customer customer){
+    public static void insertCustomer(Customer customer1, ArrayList<Customer> customerList){
+        try{
+            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            Statement s = con.createStatement();
+
+
+            String customerQuery = "INSERT INTO customer (customer_first_name, customer_last_name, customer_licensenumber," +
+                    " customer_driver_since_date)" + "VALUES(?,?,?,?)";
+            PreparedStatement preparedStatement = con.prepareStatement(customerQuery);
+            preparedStatement.setString(1,customer1.getfName());
+            preparedStatement.setString(2, customer1.getlName());
+            preparedStatement.setInt(3, customer1.getDriverLicenseNumber());
+            preparedStatement.setString(4,customer1.getDriverSinceDate());
+            preparedStatement.execute();
+
+            String residenceQuery = "INSERT INTO residence (FK_Residence_customer_id, customer_address, customer_city," +
+                    " customer_zip_code)"
+                    + "VALUES (?, ?, ?, ?)";
+
+
+            PreparedStatement preparedStatement1 = con.prepareStatement(residenceQuery);
+            preparedStatement1.setInt(1,customerList.size()+1);
+            preparedStatement1.setString(2, customer1.getAddress());
+            preparedStatement1.setString(3,customer1.getCity());
+            preparedStatement1.setInt(4,customer1.getZipCode());
+
+            preparedStatement1.execute();
+
+            String contactQuery = "INSERT INTO contact (FK_Contact_customer_id, customer_phonenumber, customer_email)" +
+                     "VALUES (?, ?, ?)";
+
+            PreparedStatement preparedStatement2 = con.prepareStatement(contactQuery);
+            preparedStatement2.setInt(1,customerList.size()+1);
+            preparedStatement2.setInt(2,customer1.getPhoneNumber());
+            preparedStatement2.setString(3,customer1.geteMail());
+
+            preparedStatement2.execute();
+
+
+
+            s.close();
+            con.close();
+        }catch(SQLException sqlException){
+            System.out.println("SqlException: "+sqlException.getMessage());
+            System.exit(1);
+        }
 
     }
+
+
 
     public static void getCar (CarType carType1, ArrayList<CarType> carTypeList){
         try{
@@ -123,13 +170,16 @@ public class SqlEngine {
             String carType = car.getCarType();
             //ResultSet rs = s.executeQuery("INSERT INTO car (car_type, car_brand, car_model) VALUES(?, ? , ?)");
 
-            String carQuery = "INSERT INTO CAR (car_type, car_brand, car_model)";
+            String carQuery = "INSERT INTO CAR (car_type, car_brand, car_model)" + "VALUES(?,?,?)";
         PreparedStatement preparedStatement = con.prepareStatement(carQuery);
         preparedStatement.setString(1,car.getCarType());
         preparedStatement.setString(2,car.getBrand());
         preparedStatement.setString(3, car.getModel());
+        preparedStatement.execute();
 
-        String carInformation = "INSERT INTO carInformation (FK_carInformation_car_id, car_fueltype, car_licenseplate, car_first_registration, car_odometer)";
+        String carInformation = "INSERT INTO carInformation (FK_carInformation_car_id, car_fueltype, car_licenseplate, car_first_registration, car_odometer)"
+                + "VALUES (?, ?, ?, ?, ?)";
+
 
         PreparedStatement preparedStatement1 = con.prepareStatement(carInformation);
         preparedStatement1.setInt(1,carTypeList.size()+1);
@@ -137,9 +187,11 @@ public class SqlEngine {
         preparedStatement1.setString(3,car.getRegNumber());
         preparedStatement1.setString(4,car.getDate());
         preparedStatement1.setInt(5,car.getOdometer());
+        preparedStatement1.execute();
 
         String carTypeQuery = "INSERT INTO carType (FK_carType_car_id, carType_gearType, carType_horsepower," +
-                " carType_motorSize, carType_airCondition, cartype_cruiseControl, cartype_seatType, cartype_seatAmount)";
+                " carType_motorSize, carType_airCondition, cartype_cruiseControl, cartype_seatType, cartype_seatAmount)"
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement2 = con.prepareStatement(carTypeQuery);
         preparedStatement2.setInt(1,carTypeList.size()+1);
@@ -150,6 +202,9 @@ public class SqlEngine {
         preparedStatement2.setString(6,car.getCruiseControl());
         preparedStatement2.setString(7,car.getSeatType());
         preparedStatement2.setInt(8,car.getSeatAmount());
+        preparedStatement2.execute();
+
+
 
             s.close();
             con.close();
