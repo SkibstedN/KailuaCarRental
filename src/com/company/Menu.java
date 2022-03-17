@@ -16,12 +16,16 @@ public class Menu {
         ArrayList<CarType> carTypeList = new ArrayList<>();
         ArrayList<Contract> contractList = new ArrayList<>();
 
-        Customer simon = new Customer(15,"Simon", "Bang", "Dybendalsvej 70 st tv", 2720, "Vanløse", 29254559, "simonbang0311@hotmail.com", 12345, "15-02-02" );
-        Customer nikolaj = new Customer(20,"Nikolaj", "Skibsted", "Kea", 2200, "København", 212345678, "nskibsted@gmail.com", 54321, "00-07-15" );
-        customersList.add(simon);
-        customersList.add(nikolaj);
-        CarType peugeot = new CarType(20,"peugeot", "107", "benzin", "ca50098", "14-04-31", 198000, 1, "Family", 1000, "manual", "Yes", "No", "fabric", 5, 68);
-        carTypeList.add(peugeot);
+
+        //Customer simon = new Customer(15,"Simon", "Bang", "Dybendalsvej 70 st tv", 2720, "Vanløse", 29254559, "simonbang0311@hotmail.com", 12345, "15-02-02" );
+        //Customer nikolaj = new Customer(20,"Nikolaj", "Skibsted", "Kea", 2200, "København", 212345678, "nskibsted@gmail.com", 54321, "00-07-15" );
+       // customersList.add(simon);
+        //customersList.add(nikolaj);
+        // CarType peugeot = new CarType(20,"peugeot", "107", "benzin", "ca50098", "14-04-31", 198000, 1, "Family", 1000, "manual", "Yes", "No", "fabric", 5, 68);
+         //carTypeList.add(peugeot);
+
+        SqlEngine.getCar(carType, carTypeList);
+        SqlEngine.getCustomer(customer, customersList);
 
         int answer = 0;
         System.out.println("Welcome to Kailua Car Rental. In this program you are able to create, update and delete" +
@@ -59,7 +63,7 @@ public class Menu {
                         switch (caseOneAnswer) {
                             case 1:
 
-                               SqlEngine.getCustomer(customer, customersList);
+                               //SqlEngine.getCustomer(customer, customersList);
 
                                 for (Customer cu: customersList ) {
                                     System.out.println(cu);
@@ -98,7 +102,7 @@ public class Menu {
 
                     switch (caseTwoAnswer) {
                         case 1:
-                            SqlEngine.getCar(carType, carTypeList);
+                            //SqlEngine.getCar(carType, carTypeList);
                             for (CarType car: carTypeList
                                  ) {
                                 System.out.println(car);

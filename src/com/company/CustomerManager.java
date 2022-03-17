@@ -9,7 +9,7 @@ public class CustomerManager {
     // TODO metoden skal kunne opdaterer en customer ud for forskellige kriterier
 
 
-    public static void createCustomer(Scanner console, ArrayList<Customer> customers, Customer customer){
+    public static void createCustomer(Scanner console, ArrayList<Customer> customerList, Customer customer){
         //Scanner console = new Scanner (System.in);
         System.out.println("" +
                 "|--------------------------|\n" +
@@ -55,13 +55,14 @@ public class CustomerManager {
         int driverLicenseNumber = console.nextInt();
         System.out.println("" +
                 "|-----------------------------------|\n" +
-                "|Enter driver since date (YY-MM-DD) |\n" +
+                "|Enter driver since date (YYYY-MM-DD) |\n" +
                 "|-----------------------------------|");
         String driverSinceDate = console.next();
+        int customerId = customerList.size()+2;
 
-        customer = new Customer(0,firstName, lastName, address, zipCode, city, phoneNumber, email, driverLicenseNumber, driverSinceDate);
-        customers.add(customer);
-        SqlEngine.insertCustomer(customer);
+        customer = new Customer(customerId,firstName, lastName, address, zipCode, city, phoneNumber, email, driverLicenseNumber, driverSinceDate);
+        customerList.add(customer);
+        SqlEngine.insertCustomer(customer, customerList);
 
 
     }

@@ -42,11 +42,13 @@ public class CarManager {
                 "|------------------|");
         int odometer = console.nextInt();
 
-        System.out.println("" +
+        /*System.out.println("" +
                 "|------------------|\n" +
                 "|Enter carID       |\n" +
                 "|------------------|");
-        int carID = console.nextInt();
+        int carID = console.nextInt();*/
+        int carID = 0;
+        //int carID = carTypeList.size() +1;
 
         System.out.println("" +
                 "|------------------|\n" +

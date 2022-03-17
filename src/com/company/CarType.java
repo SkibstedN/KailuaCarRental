@@ -38,7 +38,6 @@ public class CarType extends Car{
     public String toString (){
         return super.toString() +
 
-                "Car ID                      ||    " + carID + "\n" +
                 "Car Type                    ||    " + carType + "\n" +
                 "Motor Size                  ||    " + motorSize + "\n" +
                 "Gear Type                   ||    " + gearType + "\n" +

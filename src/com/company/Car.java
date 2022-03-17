@@ -77,6 +77,7 @@ public class Car {
                 "|--------------------------------------------|\n" +
                 "|      Kailua CarRental >> CAR <<            |\n" +
                 "|--------------------------------------------|\n\n" +
+                "Car ID                      ||    " + carID + "\n" +
                 "Brand                       ||    " + brand + "\n" +
                 "Model                       ||    " + model + "\n" +
                 "Fuel Type                   ||    " + fuelType + "\n" +
