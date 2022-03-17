@@ -112,7 +112,7 @@ public class Menu {
                             CarManager.createCar(console, carTypeList, carType );
                             break;
                         case 3:
-                            CarManager.updateCar();
+                            CarManager.updateCar(console, carType, carTypeList);
                             break;
                         case 4:
                             CarManager.deleteCar();
