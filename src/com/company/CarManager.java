@@ -91,8 +91,8 @@ public class CarManager {
                 "|--------------------|");
         int horsePower = console.nextInt();
 
-        //int carID = carTypeList.size() +2;
-        int carID = 0;
+        int carID = carTypeList.size() +2;
+
         car = new CarType(carID, brand, model, fuelType, licensePlate, firstRegDate, odometer, carID, carType, motorSize, gearType,
                 airCondition, cruiseControl, seatType, seatAmount, horsePower);
         carTypeList.add(car);
@@ -178,7 +178,7 @@ public class CarManager {
                     "|---------------------------------------------------|");
             answer = console.next();
         }
-        SqlEngine.deleteCar(deleteCar);
+        SqlEngine.deleteCar(deleteCar, carTypeList);
 
     }
 }

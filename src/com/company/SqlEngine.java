@@ -172,6 +172,7 @@ public class SqlEngine {
 
             String carQuery = "INSERT INTO CAR (car_type, car_brand, car_model)" + "VALUES(?,?,?)";
         PreparedStatement preparedStatement = con.prepareStatement(carQuery);
+
         preparedStatement.setString(1,car.getCarType());
         preparedStatement.setString(2,car.getBrand());
         preparedStatement.setString(3, car.getModel());
@@ -235,7 +236,7 @@ public class SqlEngine {
 
     }
 
-    public static void deleteCar(int deleteCar){
+    public static void deleteCar(int deleteCar, ArrayList<CarType> carTypeList){
         try{
             con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
             Statement s = con.createStatement();
@@ -256,6 +257,12 @@ public class SqlEngine {
             preparedStatement2.setInt(1,deleteCar);
             preparedStatement2.executeUpdate();
 
+            for (CarType car: carTypeList
+                 ) {
+                if (car.getCarID() == deleteCar) {
+                carTypeList.remove(car);
+                }
+            }
 
             s.close();
             con.close();
