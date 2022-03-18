@@ -27,6 +27,10 @@ public class Customer {
     }
     public Customer (){}
 
+    public int getCustomerID() {return customerID;}
+
+    public void setCustomerID(int customerID) {this.customerID = customerID;}
+
     public String getfName() {
         return fName;
     }

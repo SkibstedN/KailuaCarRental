@@ -73,7 +73,7 @@ public class Menu {
                                 CustomerManager.createCustomer(console, customersList, customer);
                                 break;
                             case 3:
-                                CustomerManager.updateCustomer();
+                                CustomerManager.updateCustomer(console, customersList, customer);
                                 break;
                             case 4:
                                 CustomerManager.deleteCustomer(console, customersList, customer);

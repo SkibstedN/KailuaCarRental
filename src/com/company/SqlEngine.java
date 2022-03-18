@@ -114,6 +114,43 @@ public class SqlEngine {
 
     }
 
+    public static void deleteCustomer (int deleteCustomer, ArrayList<Customer> customerList){
+        try{
+            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            Statement s = con.createStatement();
+
+
+            String contactQuery = "DELETE FROM contact WHERE FK_contact_customer_id = ?";
+            PreparedStatement preparedStatement = con.prepareStatement(contactQuery);
+            preparedStatement.setInt(1,deleteCustomer);
+            preparedStatement.executeUpdate();
+
+            String residenceQuery = "DELETE FROM residence WHERE FK_residence_customer_id = ?";
+            PreparedStatement preparedStatement1 = con.prepareStatement(residenceQuery);
+            preparedStatement1.setInt(1,deleteCustomer);
+            preparedStatement1.executeUpdate();
+
+            String customerQuery = "DELETE FROM customer WHERE customer_id = ?";
+            PreparedStatement preparedStatement2 = con.prepareStatement(customerQuery);
+            preparedStatement2.setInt(1,deleteCustomer);
+            preparedStatement2.executeUpdate();
+
+            for (Customer cus: customerList
+            ) {
+                if (cus.getCustomerID() == deleteCustomer) {
+                    customerList.remove(cus);
+                }
+            }
+
+            s.close();
+            con.close();
+        }catch(SQLException sqlException){
+            System.out.println("SqlException: "+sqlException.getMessage());
+            System.exit(1);
+        }
+
+    }
+
 
 
     public static void getCar (CarType carType1, ArrayList<CarType> carTypeList){

@@ -69,13 +69,83 @@ public class CustomerManager {
     }
 
 
-    public static void updateCustomer (){
+    public static void updateCustomer (Scanner console, ArrayList<Customer> customerList, Customer customer){
+
+        System.out.println("" +
+                "|-----------------------------------------------------------------|" +
+                "| Here you will be able to update some information on a customer  |" +
+                "|-----------------------------------------------------------------|");
+
+        for (Customer cus: customerList
+             ) {
+            System.out.println(cus);
+        }
+        System.out.println("" +
+                "|--------------------------------------------------------------|\n" +
+                "| Enter which customer you want to change. Enter customer ID   |\n" +
+                "|--------------------------------------------------------------|");
+
+        int changeCustomer = console.nextInt();
+
+        for (Customer cus: customerList
+             ) {
+            if (cus.getCustomerID() == changeCustomer){
+                System.out.println(cus);
+            }
+        }
+        System.out.println("" +
+                "|--------------------------------------------------------|\n" +
+                "|Is this the customer you want to change? (yes or No)    |\n" +
+                "|--------------------------------------------------------|");
+        String answer = console.next();
+        while (!answer.equalsIgnoreCase("yes")){
+
+            for (Customer cus: customerList
+                 ) {
+                System.out.println(cus);
+            }
+            System.out.println("" +
+                    "|----------------------------------------------|\n" +
+                    "|Enter the ID of the car you want to change    |\n" +
+                    "|----------------------------------------------|");
+            changeCustomer = console.nextInt();
+            for (Customer cus : customerList) {
+                if (customer.getCustomerID() == changeCustomer) {
+                    System.out.println(cus);
+                }
+            }
+            System.out.println("" +
+                    "|--------------------------------------------------------|\n" +
+                    "|Is this the customer you want to delete? (yes or No)    |\n" +
+                    "|--------------------------------------------------------|");
+            answer = console.next();
+        }
+
+
+        System.out.println("" +
+                "            ________________________________________ \n" +
+                "           | CUSTOMER UPDATE                        |\n" +
+                "           |----------------------------------------|\n" +
+                "           |Enter 1  |   Change first name          |\n" +
+                "           |Enter 2  |   Change last name           |\n" +
+                "           |Enter 3  |   Change address             |\n" +
+                "           |Enter 4  |   Change Zip Code            |\n" +
+                "           |Enter 5  |   Change city                |\n" +
+                "           |Enter 6  |   Change Phonenumber         |\n" +
+                "           |Enter 7  |   Change eMail               |\n" +
+                "           |Enter 8  |   Change Driverlicensenumber |\n" +
+                "           |Enter 8  |   Change Driver since date   |\n" +
+                "           |________________________________________|\n");
+        int changeAnswer = console.nextInt();
+
+
+
 
     }
 
 
     public static void deleteCustomer (Scanner console, ArrayList<Customer> customerList, Customer customer){
-        for (Customer cstm : customerList ) {
+       /* for (Customer cstm : customerList ) {
             System.out.println(cstm);
         }
         System.out.println("Which Customer do you want to delete? Enter Customer ID : ");
@@ -85,8 +155,51 @@ public class CustomerManager {
         String choice = console.next();
         if (choice.toLowerCase() == "no"){}
 
+       //SqlEngine.deleteCustomer(CustomerID);
+*/
+        System.out.println("Here you will choose which customer you want to delete from the database");
+        for (Customer cus: customerList
+        ) {
+            System.out.println(cus);
+        }
 
-       SqlEngine.deleteCustomer(CustomerID);
+        System.out.println(""+
+                "            __________________________________________________ \n" +
+                "           | Deleting Customer                                |\n" +
+                "           |--------------------------------------------------|\n" +
+                "           | Enter the ID of the customer you want to delete  |\n" +
+                "           |--------------------------------------------------|\n" );
+        int deleteCustomer = console.nextInt();
+
+        for (Customer cus : customerList) {
+            if (customer.getCustomerID() == deleteCustomer) {
+                System.out.println(cus);
+            }
+        }
+        System.out.println("" +
+                "|--------------------------------------------------------|\n" +
+                "|Is this the customer you want to delete? (yes or No)    |\n" +
+                "|--------------------------------------------------------|");
+        String answer = console.next();
+        while (!answer.equalsIgnoreCase("yes")){
+            System.out.println("" +
+                    "|----------------------------------------------|\n" +
+                    "|Enter the ID of the car you want to delete    |\n" +
+                    "|----------------------------------------------|");
+            deleteCustomer = console.nextInt();
+            for (Customer cus : customerList) {
+                if (customer.getCustomerID() == deleteCustomer) {
+                    System.out.println(cus);
+                }
+            }
+            System.out.println("" +
+                    "|--------------------------------------------------------|\n" +
+                    "|Is this the customer you want to delete? (yes or No)    |\n" +
+                    "|--------------------------------------------------------|");
+            answer = console.next();
+        }
+        SqlEngine.deleteCustomer(deleteCustomer, customerList);
 
     }
+
 }
