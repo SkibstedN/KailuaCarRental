@@ -8,10 +8,11 @@ public class SqlEngine {
     public static final String jdbc_driver = "com.mysql.jdbc.Driver";
     public static final String database_url = "jdbc:mysql://localhost:3306/kailua";
     public static Connection con;
+    public static String password = "Thc52cgj";
 
     public static void main(String[] args) {
         try{
-            con = DriverManager.getConnection(database_url, "root", "");
+            con = DriverManager.getConnection(database_url, "root", SqlEngine.password);
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery("/*SQL STATEMENT HERE*/");
 
@@ -30,7 +31,7 @@ public class SqlEngine {
     // TODO Opret metode som henter data fra customer tabellen og sætter det ind i customer objectet og customerlist listen.
     public static void getCustomer (Customer customer1, ArrayList<Customer> customerList){
         try{
-            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            con = DriverManager.getConnection(database_url, "root", SqlEngine.password);
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(" SELECT c.customer_id, c.customer_first_name, c.customer_last_name, c.customer_licensenumber, c.customer_driver_since_date, r.customer_address, r.customer_city, \n" +
                     "r.customer_zip_code, cc.customer_phonenumber, cc.customer_email\n" +
@@ -67,7 +68,7 @@ public class SqlEngine {
 
     public static void insertCustomer(Customer customer1, ArrayList<Customer> customerList){
         try{
-            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            con = DriverManager.getConnection(database_url, "root", SqlEngine.password);
             Statement s = con.createStatement();
 
 
@@ -120,7 +121,7 @@ public class SqlEngine {
             if (cus.getCustomerID() == customerID) {
             }
             try {
-                con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+                con = DriverManager.getConnection(database_url, "root", SqlEngine.password);
                 Statement s = con.createStatement();
 
 
@@ -164,7 +165,7 @@ public class SqlEngine {
 
     public static void deleteCustomer (int deleteCustomer, ArrayList<Customer> customerList){
         try{
-            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            con = DriverManager.getConnection(database_url, "root", SqlEngine.password);
             Statement s = con.createStatement();
 
 
@@ -203,7 +204,7 @@ public class SqlEngine {
 
     public static void getCar (CarType carType1, ArrayList<CarType> carTypeList){
         try{
-            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            con = DriverManager.getConnection(database_url, "root", SqlEngine.password);
             Statement s = con.createStatement();
             ResultSet rs = s.executeQuery(" SELECT c.car_id, c.car_brand, c.car_model, ci.car_fueltype, ci.car_licenseplate, ci.car_first_registration, ci.car_odometer," +
                     " ct.carType_id, c.car_type,\n" +
@@ -250,7 +251,7 @@ public class SqlEngine {
 
     public static void insertCar (CarType car, ArrayList<CarType> carTypeList){
         try{
-            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            con = DriverManager.getConnection(database_url, "root", SqlEngine.password);
             Statement s = con.createStatement();
             String carType = car.getCarType();
             //ResultSet rs = s.executeQuery("INSERT INTO car (car_type, car_brand, car_model) VALUES(?, ? , ?)");
@@ -303,7 +304,7 @@ public class SqlEngine {
 
     public static void updateCar(CarType carToUpdate,ArrayList<CarType> carTypeList){
         try{
-            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            con = DriverManager.getConnection(database_url, "root", SqlEngine.password);
             Statement s = con.createStatement();
             //ResultSet rs = s.executeQuery("INSERT INTO car (car_type, car_brand, car_model) VALUES(?, ? , ?)");
 
@@ -323,7 +324,7 @@ public class SqlEngine {
 
     public static void deleteCar(int deleteCar, ArrayList<CarType> carTypeList){
         try{
-            con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+            con = DriverManager.getConnection(database_url, "root", SqlEngine.password);
             Statement s = con.createStatement();
 
 
