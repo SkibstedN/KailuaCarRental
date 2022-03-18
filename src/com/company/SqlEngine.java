@@ -64,7 +64,7 @@ public class SqlEngine {
             System.exit(1);
         }
     }
-    // TODO Tage informationerne fra CustomerManager.createCustomer og sæt dem ind i databasen
+
     public static void insertCustomer(Customer customer1, ArrayList<Customer> customerList){
         try{
             con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
@@ -80,10 +80,11 @@ public class SqlEngine {
             preparedStatement.setString(4,customer1.getDriverSinceDate());
             preparedStatement.execute();
 
+
+
             String residenceQuery = "INSERT INTO residence (FK_Residence_customer_id, customer_address, customer_city," +
                     " customer_zip_code)"
                     + "VALUES (?, ?, ?, ?)";
-
 
             PreparedStatement preparedStatement1 = con.prepareStatement(residenceQuery);
             preparedStatement1.setInt(1,customerList.size()+1);
@@ -112,6 +113,53 @@ public class SqlEngine {
             System.exit(1);
         }
 
+    }
+    public static void updateCustomer(int customerID, ArrayList<Customer> customerList){
+        for (Customer cus: customerList
+             ) {
+            if (cus.getCustomerID() == customerID) {
+            }
+            try {
+                con = DriverManager.getConnection(database_url, "root", "Thc52cgj");
+                Statement s = con.createStatement();
+
+
+                String contactQuery = "UPDATE contact SET customer_phonenumber = ?, customer_email =? WHERE FK_contact_customer_id = ?";
+                PreparedStatement preparedStatement = con.prepareStatement(contactQuery);
+                preparedStatement.setInt(1, cus.getPhoneNumber());
+                preparedStatement.setString(2, cus.geteMail());
+                preparedStatement.setInt(3,customerID);
+                preparedStatement.execute();
+
+                String residenceQuery = "UPDATE residence SET customer_address = ?, customer_city = ?, customer_zip_code =? WHERE FK_residence_customer_id = ? ";
+                PreparedStatement preparedStatement1 = con.prepareStatement(residenceQuery);
+                preparedStatement1.setString(1,cus.getAddress());
+                preparedStatement1.setString(2,cus.getCity());
+                preparedStatement1.setInt(3,cus.getZipCode());
+                preparedStatement1.setInt(4,customerID);
+                preparedStatement1.execute();
+
+
+                String customerQuery = "UPDATE customer SET customer_first_name = ?, customer_last_name = ?, customer_licensenumber = ?," +
+                        "customer_driver_since_date = ? WHERE customer_id = ? ";
+                PreparedStatement preparedStatement2 = con.prepareStatement(customerQuery);
+                preparedStatement2.setString(1,cus.getfName());
+                preparedStatement2.setString(2, cus.getlName());
+                preparedStatement2.setInt(3, cus.getDriverLicenseNumber());
+                preparedStatement2.setString(4, cus.getDriverSinceDate());
+                preparedStatement2.setInt(5,customerID);
+                preparedStatement2.execute();
+
+
+                s.close();
+                con.close();
+            } catch (SQLException sqlException) {
+                System.out.println("SqlException: " + sqlException.getMessage());
+                System.exit(1);
+
+
+            }
+        }
     }
 
     public static void deleteCustomer (int deleteCustomer, ArrayList<Customer> customerList){

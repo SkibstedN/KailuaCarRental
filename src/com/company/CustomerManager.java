@@ -134,11 +134,230 @@ public class CustomerManager {
                 "           |Enter 6  |   Change Phonenumber         |\n" +
                 "           |Enter 7  |   Change eMail               |\n" +
                 "           |Enter 8  |   Change Driverlicensenumber |\n" +
-                "           |Enter 8  |   Change Driver since date   |\n" +
+                "           |Enter 9  |   Change Driver since date   |\n" +
+                "           |Enter 10 |   Return to Main Menu        |\n" +
                 "           |________________________________________|\n");
         int changeAnswer = console.nextInt();
 
+        switch (changeAnswer){
 
+            case 1:
+                for (Customer cus:customerList
+                     ) {
+                   if (cus.getCustomerID() == changeCustomer){
+                       System.out.println(cus.getfName());
+                   }
+                }
+                System.out.println("" +
+                        "|---------------------------------------|\n" +
+                        "|What is the new customer first name    |\n" +
+                        "|---------------------------------------|");
+                String newCustomerFName = console.next();
+                System.out.println(newCustomerFName);
+                System.out.println("" +
+                        "|-----------------------------------------|\n" +
+                        "|Is this the final first name? Yes or No  |\n" +
+                        "|-----------------------------------------|");
+                String customerChangeAnswer = console.next();
+
+                while (!customerChangeAnswer.equalsIgnoreCase("yes")){
+                    System.out.println("" +
+                            "|---------------------------------|\n" +
+                            "|Enter new customer first name    |\n" +
+                            "|---------------------------------|");
+                    System.out.println(newCustomerFName);
+
+                     newCustomerFName = console.next();
+                    System.out.println("" +
+                            "|-----------------------------------------|\n" +
+                            "|Is this the final first name? Yes or No  |\n" +
+                            "|-----------------------------------------|");
+                    customerChangeAnswer = console.next();
+
+                }
+
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        cus.setfName(newCustomerFName);
+                    }
+                }
+
+                break;
+
+            case 2:
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        System.out.println(cus.getlName());
+
+                    }
+                }
+                System.out.println("" +
+                        "|---------------------------------------|\n" +
+                        "|What is the new customer Last  name    |\n" +
+                        "|---------------------------------------|");
+                String newCustomerLName = console.next();
+                System.out.println(newCustomerLName);
+                System.out.println("" +
+                        "|-----------------------------------------|\n" +
+                        "|Is this the final first name? Yes or No  |\n" +
+                        "|-----------------------------------------|");
+                String customerChangeLNameAnswer = console.next();
+
+                while (!customerChangeLNameAnswer.equalsIgnoreCase("yes")){
+                    System.out.println("" +
+                            "|---------------------------------|\n" +
+                            "|Enter new customer first name    |\n" +
+                            "|---------------------------------|");
+
+                    newCustomerLName = console.next();
+                    System.out.println(newCustomerLName);
+                    System.out.println("" +
+                            "|-----------------------------------------|\n" +
+                            "|Is this the final first name? Yes or No  |\n" +
+                            "|-----------------------------------------|");
+                    customerChangeLNameAnswer = console.next();
+
+                }
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        cus.setlName(newCustomerLName);
+                    }
+                }
+                break;
+
+            case 3:
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        System.out.println(cus.getAddress());
+
+                        System.out.println("" +
+                                "|-------------------------------|\n" +
+                                "|Enter new customer Address     |\n" +
+                                "|-------------------------------|");
+                        String newCustomerAddress = console.next();
+                        cus.setAddress(newCustomerAddress);
+                    }
+                }
+
+
+                break;
+
+            case 4:
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        System.out.println(cus.getZipCode());
+
+                        System.out.println("" +
+                                "|-------------------------------|\n" +
+                                "|Enter new Zip Code             |\n" +
+                                "|-------------------------------|");
+                        int newCustomerZipCode = console.nextInt();
+                        cus.setZipCode(newCustomerZipCode);
+                    }
+                }
+                break;
+
+            case 5:
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        System.out.println(cus.getCity());
+
+                        System.out.println("" +
+                                "|---------------------------|\n" +
+                                "|Enter new city             |\n" +
+                                "|---------------------------|");
+                        String newCustomerCity = console.next();
+                        cus.setCity(newCustomerCity);
+                    }
+                }
+                break;
+
+            case 6:
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        System.out.println(cus.getPhoneNumber());
+
+                        System.out.println("" +
+                                "|-------------------------------|\n" +
+                                "|Enter new Phonenumber          |\n" +
+                                "|-------------------------------|");
+                        int newCustomerPhonenumber = console.nextInt();
+                        cus.setPhoneNumber(newCustomerPhonenumber);
+                    }
+                }
+                break;
+
+            case 7:
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        System.out.println(cus.geteMail());
+
+                        System.out.println("" +
+                                "|-------------------------------|\n" +
+                                "|Enter new Email Address        |\n" +
+                                "|-------------------------------|");
+                        String newCustomerEmail = console.next();
+                        cus.seteMail(newCustomerEmail);
+                    }
+                }
+                break;
+
+            case 8:
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        System.out.println(cus.getDriverLicenseNumber());
+
+                        System.out.println("" +
+                                "|-------------------------------|\n" +
+                                "|Enter new DriverLicense number |\n" +
+                                "|-------------------------------|");
+                        int newCustomerDriverLicense = console.nextInt();
+                        cus.setZipCode(newCustomerDriverLicense);
+                    }
+                }
+                break;
+
+            case 9:
+                for (Customer cus:customerList
+                ) {
+                    if (cus.getCustomerID() == changeCustomer){
+                        System.out.println(cus.getDriverSinceDate());
+
+                        System.out.println("" +
+                                "|-------------------------------|\n" +
+                                "|Enter new driver Since Date    |\n" +
+                                "|-------------------------------|");
+                        String newCustomerDriverSinceDate = console.next();
+                        cus.setDriverSinceDate(newCustomerDriverSinceDate);
+                    }
+                }
+                break;
+
+            case 10:
+                break;
+
+            default:
+                break;
+
+
+
+
+
+
+
+
+
+        }
+        SqlEngine.updateCustomer(changeCustomer, customerList);
 
 
     }
