@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class CustomerManager {
@@ -73,7 +74,19 @@ public class CustomerManager {
     }
 
 
-    public static void deleteCustomer (){
+    public static void deleteCustomer (Scanner console, ArrayList<Customer> customerList, Customer customer){
+        for (Customer cstm : customerList ) {
+            System.out.println(cstm);
+        }
+        System.out.println("Which Customer do you want to delete? Enter Customer ID : ");
+        int customerID = console.nextInt();
+        System.out.println("You have chosen to delete Customer with ID = " + customerID +
+                "Please confirm your choice, yes or no :");
+        String choice = console.next();
+        if (choice.toLowerCase() == "no"){}
+
+
+       SqlEngine.deleteCustomer(CustomerID);
 
     }
 }

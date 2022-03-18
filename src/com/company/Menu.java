@@ -51,12 +51,12 @@ public class Menu {
 
                     System.out.println("" +
                             "            ________________________________________ \n" +
-                            "           | CUSTOMER MANAGE                        |\n" +
+                            "           | CUSTOMER MANAGER                       |\n" +
                             "           |----------------------------------------|\n" +
-                            "           |Enter 1  |   Se all customers           |\n" +
+                            "           |Enter 1  |   See all customers          |\n" +
                             "           |Enter 2  |   Create new customer        |\n" +
                             "           |Enter 3  |   Update current customer    |\n" +
-                            "           |Enter 4  |   Deleting customer          |\n" +
+                            "           |Enter 4  |   Delete customer            |\n" +
                             "           |Enter 5  |   Return to main menu        |\n" +
                             "           |________________________________________|");
                     int caseOneAnswer = console.nextInt();
@@ -76,7 +76,7 @@ public class Menu {
                                 CustomerManager.updateCustomer();
                                 break;
                             case 4:
-                                CustomerManager.deleteCustomer();
+                                CustomerManager.deleteCustomer(console, customersList, customer);
                                 break;
                             case 5:
                                 break;
